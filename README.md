@@ -1,6 +1,6 @@
 # Node Express With TypeScript & PostgreSQL - Backend
 
-This repository contains the backend implementation for the **AI Product Description Generator**. It is built using **Node.js**, **Express**, **TypeScript**, and **Prisma** with **PostgreSQL** as the database.
+This repository contains the backend implementation for the **Node Express With TypeScript & PostgreSQL - Backend**. It is built using **Node.js**, **Express**, **TypeScript**, and **Prisma** with **PostgreSQL** as the database.
 
 ---
 
