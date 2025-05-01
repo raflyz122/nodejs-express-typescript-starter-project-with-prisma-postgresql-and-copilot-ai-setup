@@ -1,0 +1,34 @@
+{
+  "github.copilot.chat.codeGeneration.instructions": [
+    {
+      "file": ".github/clean-code.md",
+      "description": "This file contains instructions for writing clean code. It includes best practices and guidelines to follow when writing code to ensure it is readable, maintainable, and efficient."
+    },
+    {
+      "file": ".github/code-quality.md",
+      "description": "This file contains instructions for maintaining code quality. It includes best practices and guidelines to follow when writing code to ensure it is of high quality, reliable, and efficient."
+    },
+    {
+      "file": ".github/typescript.md",
+      "description": "This file contains instructions for writing TypeScript code. It includes best practices and guidelines to follow when writing TypeScript code to ensure it is readable, maintainable, and efficient."
+    },
+    {
+      "file": ".github/node-express.md",
+      "description": "This file contains instructions for generating code for a Node.js and Express application."
+    },
+    {
+      "file": ".github/database.md",
+      "description": "This file contains instructions for generating code related to database operations."
+    },
+    {
+      "file": ".github/copilot-instructions.md",
+      "description": "This file contains project instructions to follow the tech stack, folder and file structure, and example codes."
+    }
+  ],
+  "github.copilot.chat.commitMessageGeneration.instructions": [
+    {
+      "file": ".github/commit-message-instructions.md",
+      "description": "This file contains instructions for writing commit messages. It includes best practices and guidelines to follow when writing commit messages to ensure they are clear, concise, and informative."
+    }
+  ]
+}
