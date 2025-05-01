@@ -73,8 +73,8 @@ backend/
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-repo/ai-product-description-generator.git
-   cd backend
+   git clone https://github.com/kumarsonu676/nodejs-express-typescript-starter-project-with-prisma-postgresql-and-copilot-ai-setup.git
+   cd nodejs-express-typescript-starter-project-with-prisma-postgresql-and-copilot-ai-setup
    ```
 
 2. Install dependencies:
