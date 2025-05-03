@@ -34,7 +34,8 @@ const authorization = (roles: Array<Roles>) => {
         success: false,
         message: 'Not enough permissions',
       };
-      return res.status(403).json(response);
+      res.status(403).json(response);
+      return;
     }
   };
 };

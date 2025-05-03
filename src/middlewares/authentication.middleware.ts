@@ -39,7 +39,8 @@ export const authentication = (req: Request, res: Response, next: NextFunction) 
       success: false,
       message: 'Missing or invalid token',
     };
-    return res.status(401).json(response);
+    res.status(401).json(response);
+    return;
   }
 
   next();
