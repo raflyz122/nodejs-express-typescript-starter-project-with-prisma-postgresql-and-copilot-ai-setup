@@ -30,6 +30,7 @@ export const authentication = (req: Request, res: Response, next: NextFunction) 
 
     (req as CustomRequest).token = jwtPayload;
 
+    if (!req.body) req.body = {};
     req.body.jwtToken = token?.split(' ')[1];
     req.body.currentUserId = jwtPayload.payload.id;
     req.body.currentUserName = jwtPayload.payload.email;

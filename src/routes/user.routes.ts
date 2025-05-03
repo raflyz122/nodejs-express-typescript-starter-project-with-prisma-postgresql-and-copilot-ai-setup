@@ -11,8 +11,8 @@ const userRouter = Router();
 
 const userController = container.get<UserController>(TYPES.UserController);
 
-userRouter.get('/getbyemail', asyncHandler(userController.getUserByEmail));
-userRouter.get('/:id', asyncHandler(userController.getUserById));
+userRouter.get('/getbyemail', [authentication], asyncHandler(userController.getUserByEmail));
+userRouter.get('/:id', [authentication], asyncHandler(userController.getUserById));
 userRouter.put('/:id', [authentication], asyncHandler(userController.updateUserById));
 userRouter.delete('/:id', [authentication, authorization([Roles.Administrator])], asyncHandler(userController.deleteUserById));
 
