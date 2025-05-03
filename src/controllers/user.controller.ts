@@ -1,8 +1,6 @@
 import { Request, Response } from 'express';
 import CustomResponse from '../dtos/custom-response';
 import { UpdateUserDto, UserDto } from '../dtos/user.dto';
-import { CreateUserModel } from '../models/user.model';
-import CustomError from '../exceptions/custom-error';
 import container from '../config/ioc.config';
 import IUnitOfService from '../services/interfaces/iunitof.service';
 import { TYPES } from '../config/ioc.types';
@@ -12,6 +10,17 @@ export class UserController {
     this.unitOfService = unitOfService;
   }
 
+  /**
+   * Retrieves a user by their unique identifier.
+   *
+   * @param req - Express request object containing the user ID in the route parameters.
+   * @param res - Express response object used to send the response.
+   * @returns A promise that resolves to an Express response containing a `CustomResponse<UserDto>`.
+   *
+   * @remarks
+   * - Returns a 200 status code with the user data if found.
+   * - Returns a 404 status code with an error message if the user is not found.
+   */
   getUserById = async (req: Request, res: Response): Promise<Response<CustomResponse<UserDto>>> => {
     const userId = req.params.id;
     const user = await this.unitOfService.User.findById(userId);
@@ -27,13 +36,26 @@ export class UserController {
     return res.status(200).json(response);
   };
 
+  /**
+   * Retrieves a user by their email address from the query parameters.
+   *
+   * @param req - The Express request object, expected to have an 'email' query parameter.
+   * @param res - The Express response object.
+   * @returns A promise that resolves to an Express response containing a CustomResponse with the UserDto data if found,
+   *          or an error message if the email is missing or the user is not found.
+   *
+   * @remarks
+   * - Responds with 400 if the email query parameter is missing.
+   * - Responds with 404 if no user is found for the provided email.
+   * - Responds with 200 and the user data if found.
+   */
   getUserByEmail = async (req: Request, res: Response): Promise<Response<CustomResponse<UserDto>>> => {
     const email = req.query.email as string;
     if (!email) {
       return res.status(400).json({ message: 'Email is required' });
     }
 
-    const user = await this.unitOfService.User.findByEmail(email, false);
+    const user = await this.unitOfService.User.findByEmail(email);
     if (!user) {
       return res.status(404).json({ message: 'User not found' });
     }
@@ -46,34 +68,14 @@ export class UserController {
     return res.status(200).json(response);
   };
 
-  createUser = async (req: Request, res: Response): Promise<Response<CustomResponse<UserDto>>> => {
-    const data = req.body as CreateUserModel;
-
-    let user = await this.unitOfService.User.findByEmail(data.email, false);
-    if (user) {
-      throw new CustomError('User already exists', 409);
-    }
-
-    user = await this.unitOfService.User.create(data);
-
-    let response: CustomResponse<UserDto>;
-
-    if (!user) {
-      response = {
-        success: false,
-        message: 'User creation failed',
-      };
-      return res.status(400).json(response);
-    }
-
-    response = {
-      success: true,
-      data: user,
-    };
-
-    return res.status(201).json(response);
-  };
-
+  /**
+   * Updates a user's information by their unique identifier.
+   *
+   * @param req - Express request object containing the user ID in `params.id` and update data in the request body.
+   * @param res - Express response object used to send the response.
+   * @returns A promise that resolves to an Express response containing a `CustomResponse` with the updated `UserDto` data,
+   *          or a 404 status with an error message if the user is not found.
+   */
   updateUserById = async (req: Request, res: Response): Promise<Response<CustomResponse<UserDto>>> => {
     const userId = req.params.id;
     const data = req.body as UpdateUserDto;
@@ -91,6 +93,17 @@ export class UserController {
     return res.status(200).json(response);
   };
 
+  /**
+   * Deletes a user by their unique identifier.
+   *
+   * @param req - Express request object containing the user ID in the route parameters.
+   * @param res - Express response object used to send the response.
+   * @returns A promise that resolves to an Express response containing a `CustomResponse<UserDto>`.
+   *
+   * @remarks
+   * - Returns a 404 status code if the user is not found.
+   * - Returns a 200 status code with the deleted user data on success.
+   */
   deleteUserById = async (req: Request, res: Response): Promise<Response<CustomResponse<UserDto>>> => {
     const userId = req.params.id;
     const user = await this.unitOfService.User.delete(userId);
