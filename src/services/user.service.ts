@@ -78,21 +78,37 @@ export class UserService implements IUserService {
    */
   async create(data: CreateUserModel, role: UserRole): Promise<UserDto | null> {
     const hashedPassword = await PasswordUtils.hashPassword(data.password);
-    const user = await this.unitOfWork.User.create({
-      email: data.email,
-      passwordHash: hashedPassword,
-      firstName: data.firstName,
-      lastName: data.lastName,
-      phoneNumber: data.phoneNumber,
-      phoneCountryCode: data.phoneCountryCode,
-      isEmailVerified: false,
-      isPhoneVerified: false,
-      twoFactorEnabled: false,
-      role: role,
-      provider: AuthProvider.CREDENTIALS,
-      isActive: true,
+    return this.unitOfWork.transaction(async (transactionClient) => {
+      const user = await transactionClient.user.create({
+        data: {
+          email: data.email,
+          passwordHash: hashedPassword,
+          firstName: data.firstName,
+          lastName: data.lastName,
+          phoneNumber: data.phoneNumber,
+          phoneCountryCode: data.phoneCountryCode,
+          isEmailVerified: false,
+          isPhoneVerified: false,
+          twoFactorEnabled: false,
+          role: role,
+          provider: AuthProvider.CREDENTIALS,
+          isActive: true,
+        },
+      });
+
+      //other table insert/update operations can be done here within a database transaction.
+      // Executes a set of operations within a database transaction.
+      // For example, creating a subscription for the user
+      // await transactionClient.subscription.create({
+      //   data: {
+      //     userId: user.id,
+      //     plan: 'Free' as Plan,
+      //     startDate: new Date(),
+      //   },
+      // });
+
+      return this.convertToDto(user);
     });
-    return this.convertToDto(user);
   }
 
   /**

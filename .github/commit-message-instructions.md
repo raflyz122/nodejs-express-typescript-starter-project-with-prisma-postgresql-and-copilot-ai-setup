@@ -11,7 +11,7 @@ Each commit message should follow this basic structure:
 ```
 <type>: <short summary>
 
-[optional body]
+[body]
 
 [optional footer]
 ```
@@ -20,7 +20,7 @@ Each commit message should follow this basic structure:
 
 - **type**: Describes the purpose of the commit (e.g., `feat`, `fix`, `docs`, `style`, `refactor`, `test`, `chore`).
 - **short summary**: A concise description (imperative mood, ≤ 72 characters).
-- **body**: (Optional) Explain the **what** and **why** of the change.
+- **body**: Explain the **what** and **why** of the change.
 - **footer**: (Optional) Link to issues (e.g., `Closes #123`).
 
 ---
