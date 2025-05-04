@@ -24,8 +24,13 @@ export class UserRepository implements IUserRepository {
    * @returns A promise that resolves to the user if found, or `null` if no user exists with the given email.
    */
   async findByEmail(email: string): Promise<User | null> {
-    return prisma.user.findUnique({
-      where: { email },
+    return prisma.user.findFirst({
+      where: {
+        email: {
+          equals: email,
+          mode: 'insensitive',
+        },
+      },
     });
   }
 
@@ -36,8 +41,13 @@ export class UserRepository implements IUserRepository {
    * @returns A promise that resolves to the user if found, or `null` if no user exists with the given phone number.
    */
   async findByPhoneNumber(phoneNumber: string): Promise<User | null> {
-    return prisma.user.findUnique({
-      where: { phoneNumber },
+    return prisma.user.findFirst({
+      where: {
+        phoneNumber: {
+          equals: phoneNumber,
+          mode: 'insensitive',
+        },
+      },
     });
   }
 
@@ -51,7 +61,10 @@ export class UserRepository implements IUserRepository {
   async findByProviderId(providerId: string, provider: AuthProvider): Promise<User | null> {
     return prisma.user.findFirst({
       where: {
-        providerId,
+        providerId: {
+          equals: providerId,
+          mode: 'insensitive',
+        },
         provider,
       },
     });
