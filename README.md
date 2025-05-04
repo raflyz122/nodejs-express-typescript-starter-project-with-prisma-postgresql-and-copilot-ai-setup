@@ -105,13 +105,15 @@ backend/
 ### Authentication
 
 - `POST /api/auth/login`: User login.
+- `POST /api/auth/register`: User registration.
 - `POST /api/auth/refresh-token`: Refresh JWT token.
 - `POST /api/auth/logout`: User logout.
 
 ### Users
 
+- `GET /api/users/me`: Get current logged in user
+- `GET /api/users/getbyemail`: Get user by Email.
 - `GET /api/users/:id`: Get user by ID.
-- `POST /api/users`: Create a new user.
 - `PUT /api/users/:id`: Update user by ID.
 - `DELETE /api/users/:id`: Delete user by ID.
 

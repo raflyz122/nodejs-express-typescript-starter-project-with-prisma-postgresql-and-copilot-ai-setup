@@ -4,11 +4,38 @@ import { UpdateUserDto, UserDto } from '../dtos/user.dto';
 import container from '../config/ioc.config';
 import IUnitOfService from '../services/interfaces/iunitof.service';
 import { TYPES } from '../config/ioc.types';
+import CustomError from '../exceptions/custom-error';
 
 export class UserController {
   constructor(private unitOfService = container.get<IUnitOfService>(TYPES.IUnitOfService)) {
     this.unitOfService = unitOfService;
   }
+
+  /**
+   * Retrieves the current user from the request.
+   *
+   * @param req - The Express request object.
+   * @param res - The Express response object.
+   * @returns A promise that resolves to an Express response containing a `CustomResponse<UserDto>`.
+   */
+  getCurrentUser = async (req: Request, res: Response): Promise<Response<CustomResponse<UserDto>>> => {
+    const userId = req.body?.currentUserId || '';
+    if (!userId) {
+      throw new CustomError('User ID is required', 400);
+    }
+
+    const user = await this.unitOfService.User.findById(userId);
+    if (!user) {
+      throw new CustomError('User not found', 404);
+    }
+
+    const response: CustomResponse<UserDto> = {
+      success: true,
+      data: user,
+    };
+
+    return res.status(200).json(response);
+  };
 
   /**
    * Retrieves a user by their unique identifier.
@@ -23,9 +50,13 @@ export class UserController {
    */
   getUserById = async (req: Request, res: Response): Promise<Response<CustomResponse<UserDto>>> => {
     const userId = req.params.id;
+    if (!userId) {
+      throw new CustomError('User ID is required', 400);
+    }
+
     const user = await this.unitOfService.User.findById(userId);
     if (!user) {
-      return res.status(404).json({ message: 'User not found' });
+      throw new CustomError('User not found', 404);
     }
 
     const response: CustomResponse<UserDto> = {
@@ -52,12 +83,12 @@ export class UserController {
   getUserByEmail = async (req: Request, res: Response): Promise<Response<CustomResponse<UserDto>>> => {
     const email = req.query.email as string;
     if (!email) {
-      return res.status(400).json({ message: 'Email is required' });
+      throw new CustomError('Email is required', 400);
     }
 
     const user = await this.unitOfService.User.findByEmail(email);
     if (!user) {
-      return res.status(404).json({ message: 'User not found' });
+      throw new CustomError('User not found', 404);
     }
 
     const response: CustomResponse<UserDto> = {
@@ -82,7 +113,7 @@ export class UserController {
     const user = await this.unitOfService.User.update(userId, data);
 
     if (!user) {
-      return res.status(404).json({ message: 'User not found' });
+      throw new CustomError('User not found', 404);
     }
 
     const response: CustomResponse<UserDto> = {
@@ -108,7 +139,7 @@ export class UserController {
     const userId = req.params.id;
     const user = await this.unitOfService.User.delete(userId);
     if (!user) {
-      return res.status(404).json({ message: 'User not found' });
+      throw new CustomError('User not found', 404);
     }
 
     const response: CustomResponse<UserDto> = {
